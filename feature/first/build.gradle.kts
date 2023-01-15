@@ -1,26 +1,13 @@
 plugins {
-    id("com.android.application")
-    id("com.google.dagger.hilt.android")
-    kotlin("kapt")
-    kotlin("android")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.viclab.multimodules"
-    compileSdk = 33
-
-    defaultConfig {
-        applicationId = "com.viclab.multimodules"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+    namespace = "com.viclab.first"
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

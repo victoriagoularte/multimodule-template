@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "multimodules"
 include(":app")
+include(":feature:first")
