@@ -1,8 +1,8 @@
 plugins {
     id("com.android.application")
     id("com.google.dagger.hilt.android")
-    kotlin("kapt")
     kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -17,6 +17,10 @@ android {
         versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
     }
 
     buildTypes {
@@ -38,10 +42,15 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
+    implementation(project(":feature:first"))
+    implementation(project(":core:navigation"))
+
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.ktx)
     implementation(libs.hilt.android)
-    implementation(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit4)
     androidTestImplementation(kotlin("test"))
